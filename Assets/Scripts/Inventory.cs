@@ -5,9 +5,21 @@ public class Inventory : MonoBehaviour
 {
     private int _woodCount = 0;
     private int _stoneCount = 0;
+    private int _carrotCount = 0;
+    private int _potatoCount = 0;
+    private int _pumpkinCount = 0;
+    private int _strawberryCount = 0;
+    private int _tomatoCount = 0;
+    private int _turnipCount = 0;
 
     public int woodCount => _woodCount;
     public int stoneCount => _stoneCount;
+    public int carrotCount => _carrotCount;
+    public int potatoCount => _potatoCount;
+    public int pumpkinCount => _pumpkinCount;
+    public int strawberryCount => _strawberryCount;
+    public int tomatoCount => _tomatoCount;
+    public int turnipCount => _turnipCount;
 
     [SerializeField] private GameObject inventoryTable;
     [SerializeField] private TMP_Text _wood;
