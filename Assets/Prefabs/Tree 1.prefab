@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6495fe14d81335e43886dd96f15c66ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceToDrop: wood
+  resourceToDrop: strawberry

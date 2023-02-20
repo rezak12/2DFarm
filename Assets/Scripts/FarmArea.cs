@@ -9,7 +9,12 @@ public class FarmArea : MonoBehaviour
     [SerializeField] private Sprite _uncultivatedGround;
     [SerializeField] private Sprite _cultivatedGround;
     [SerializeField] private Player _player;
-    [SerializeField] private GameObject _plantsTable;
+    [SerializeField] private GameObject _carrotPlant;
+    [SerializeField] private GameObject _potatoPlant;
+    [SerializeField] private GameObject _pumpkinPlant;
+    [SerializeField] private GameObject _strawberryPlant;
+    [SerializeField] private GameObject _tomatoPlant;
+    [SerializeField] private GameObject _turnipPlant;
 
     private void Awake()
     {
@@ -34,7 +39,7 @@ public class FarmArea : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             _canInteract = false;
         }
@@ -55,11 +60,10 @@ public class FarmArea : MonoBehaviour
                 areaType = AreaType.ReadyForPlant;
                 break;
             case AreaType.ReadyForPlant:
-                //interact
+                Plant();
                 areaType = AreaType.WithPlant;
                 break;
             case AreaType.WithPlant:
-                //
                 break;
             default:
                 Debug.Log("Wrong type of area: " + gameObject.name);
@@ -69,9 +73,35 @@ public class FarmArea : MonoBehaviour
 
     private void Plant()
     {
-        string seed = _player.GetCurrentSeed();
-        GameObject plant;
-        //spawn plant of this type seed
+        Inventory inventory = _player.GetComponent<Inventory>();
+        string seed = _player.GetCurrentSeed().ToLower();
+        GameObject plant = new GameObject();
+        switch (seed)
+        {
+            case "carrot":
+                plant = _carrotPlant;
+                break;
+            case "potato":
+                plant = _potatoPlant;
+                break;
+            case "pumpkin":
+                plant = _pumpkinPlant;
+                break;
+            case "strawberry":
+                plant = _strawberryPlant;
+                break;
+            case "tomato":
+                plant = _tomatoPlant;
+                break;
+            case "turnip":
+                plant = _turnipPlant;
+                break;
+            default:
+                Debug.Log("Have not a current seed");
+                break;
+        }
+
+        Instantiate(plant, transform.position, transform.rotation);
     }
 
 }
