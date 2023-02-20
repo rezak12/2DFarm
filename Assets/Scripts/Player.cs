@@ -5,9 +5,9 @@ public class Player : MonoBehaviour
     public float maxStamina = 20f;
     public float stamina;
     [SerializeField] private Bar staminaBar;
+    [SerializeField] private SeedSlot _seedslot;
     [SerializeField] private string[] _seedTypes;
     private int _currentSeed = 0;
-    [SerializeField] private SeedSlot _seedslot;
 
     private void Awake()
     {

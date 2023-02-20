@@ -37,7 +37,7 @@ public class PrefabSpawner : MonoBehaviour
                 return;
         }
 
-        Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position, transform.rotation);
+        GameObject plant = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position, transform.rotation, this.transform);
     }
     private bool ShouldSpawn()
     {

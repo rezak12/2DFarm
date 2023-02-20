@@ -3,9 +3,10 @@ using UnityEngine;
 public class FarmArea : MonoBehaviour
 {
     private enum AreaType { Uncultivated, Cultivated, ReadyForPlant, WithPlant};
-    [SerializeField] private AreaType areaType;
     private bool _canInteract = false;
     private SpriteRenderer _spriteRenderer;
+    private AreaType areaType;
+
     [SerializeField] private Sprite _uncultivatedGround;
     [SerializeField] private Sprite _cultivatedGround;
     [SerializeField] private Player _player;
@@ -26,6 +27,26 @@ public class FarmArea : MonoBehaviour
         if(_canInteract && Input.GetKeyDown(KeyCode.E))
         {
             Interact();
+        }
+
+        if (areaType == AreaType.WithPlant)
+        {
+            bool shouldRetype = true;
+            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, 0.1f);
+            if (collider2Ds.Length > 0)
+            {
+                foreach (Collider2D item in collider2Ds)
+                {
+                    if (item.tag == "Plant")
+                        shouldRetype = false;
+                }
+            }
+            if (shouldRetype)
+            {
+                _spriteRenderer.color = Color.white;
+                _spriteRenderer.sprite = _uncultivatedGround;
+                areaType = AreaType.Uncultivated;
+            }
         }
     }
 
@@ -79,21 +100,27 @@ public class FarmArea : MonoBehaviour
         switch (seed)
         {
             case "carrot":
+                Destroy(plant);
                 plant = _carrotPlant;
                 break;
             case "potato":
+                Destroy(plant);
                 plant = _potatoPlant;
                 break;
             case "pumpkin":
+                Destroy(plant);
                 plant = _pumpkinPlant;
                 break;
             case "strawberry":
+                Destroy(plant);
                 plant = _strawberryPlant;
                 break;
             case "tomato":
+                Destroy(plant);
                 plant = _tomatoPlant;
                 break;
             case "turnip":
+                Destroy(plant);
                 plant = _turnipPlant;
                 break;
             default:
@@ -101,7 +128,7 @@ public class FarmArea : MonoBehaviour
                 break;
         }
 
-        Instantiate(plant, transform.position, transform.rotation);
+        Instantiate(plant, transform.position, transform.rotation, this.transform);
     }
 
 }
