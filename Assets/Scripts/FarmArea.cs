@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FarmArea : MonoBehaviour
 {
+    [SerializeField] private QuestManager _questManager;
     private enum AreaType { Uncultivated, Cultivated, ReadyForPlant, WithPlant};
     private bool _canInteract = false;
     private SpriteRenderer _spriteRenderer;
@@ -129,6 +130,7 @@ public class FarmArea : MonoBehaviour
         }
 
         Instantiate(plant, transform.position, transform.rotation, this.transform);
+        _questManager.CheckChange(seed);
     }
 
 }
