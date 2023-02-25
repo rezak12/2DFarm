@@ -33,7 +33,7 @@ public class PrefabSpawner : MonoBehaviour
         Collider2D[] checkInfo = Physics2D.OverlapCircleAll(transform.position, checkRadius);
         foreach (Collider2D obj in checkInfo)
         {
-            if (obj.tag == "Respawn")
+            if (obj.tag == "Plant")
                 return;
         }
 
