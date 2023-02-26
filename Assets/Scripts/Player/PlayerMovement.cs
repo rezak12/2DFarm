@@ -63,9 +63,12 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        if(facingRight)
+            transform.eulerAngles = new Vector3(0,180,0);
+        else if (!facingRight)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 
     private void SetRunning(bool isRunning)
