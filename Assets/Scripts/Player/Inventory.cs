@@ -37,17 +37,12 @@ public class Inventory : MonoBehaviour
             ShowInventory();
         else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I))
             CloseInventory();
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //    AddItem("wood", 2);
-        //else if (Input.GetKeyDown(KeyCode.LeftControl))
-        //    RemoveItem("wood", 2);
     }
 
     public void AddItem(string type, int count)
     {
         ref int itemCount = ref _carrotCount;
-        switch (type.ToLower())
+        switch (type)
         {
             case "carrot":
                 itemCount = ref _carrotCount;
@@ -82,7 +77,7 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(string type, int count)
     {
         ref int itemCount = ref _carrotCount;
-        switch (type.ToLower())
+        switch (type)
         {
             case "carrot":
                 itemCount = ref _carrotCount;
