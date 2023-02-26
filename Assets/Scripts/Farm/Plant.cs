@@ -3,18 +3,20 @@ using TMPro;
 
 public class Plant : MonoBehaviour
 {
-
-    private Inventory _inventory;
-    private bool _readyForDrop = false;
-    private float dropTime;
+    [Header("For Planting")]
     [SerializeField] private string _itemToDrop;
     [SerializeField] private float _timeForPrepare;
     [SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private TMP_Text _timer;
 
-    private SoundManager _soundManager;
+    [Header("Audio Clips")]
     [SerializeField] private AudioClip _audioPlant;
     [SerializeField] private AudioClip _audioTake;
+
+    private SoundManager _soundManager;
+    private Inventory _inventory;
+    private bool _readyForDrop = false;
+    private float dropTime;
 
     void Start()
     {
@@ -30,9 +32,7 @@ public class Plant : MonoBehaviour
     void Update()
     {
         if(Time.time < dropTime)
-        {
             _timer.text = ((int)dropTime - (int)Time.time).ToString();
-        }
         else
         {
             _readyForDrop = true;

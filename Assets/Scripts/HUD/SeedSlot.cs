@@ -4,15 +4,10 @@ using UnityEngine.UI;
 public class SeedSlot : MonoBehaviour
 {
     private Image _currentSeed;
-    [SerializeField] Sprite[] _seeds;
+    [SerializeField] private Sprite[] _seeds;
     void Start()
     {
         _currentSeed = GetComponent<Image>();
-    }
-
-    void Update()
-    {
-        
     }
 
     public void ChangeCurrentSeed(int seedNumber)

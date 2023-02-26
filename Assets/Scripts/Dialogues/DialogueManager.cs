@@ -10,9 +10,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text _nameText;
     [SerializeField] private TMP_Text _messageText;
 
-    [SerializeField] private Animator _animator;
-
     private Queue<string> _sentences;
+
+    [SerializeField] private Animator _animator;
 
     public static Action OnDialogueEnd;
 

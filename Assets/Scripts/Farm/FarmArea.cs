@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class FarmArea : MonoBehaviour
 {
+    [Header("Managements")]
     [SerializeField] private QuestManager _questManager;
-    private enum AreaType { Uncultivated, Cultivated, ReadyForPlant, WithPlant};
-    private bool _canInteract = false;
-    private SpriteRenderer _spriteRenderer;
-    private AreaType areaType;
+    public static Action<string> OnPlant;
+    [SerializeField] private SoundManager _soundManager;
+    [SerializeField] private AudioClip _audio;
 
+    [Header("Graphics")]
     [SerializeField] private Sprite _uncultivatedGround;
     [SerializeField] private Sprite _cultivatedGround;
 
+    [Header("For Interact")]
     [SerializeField] private Player _player;
-    
     [SerializeField] private GameObject _carrotPlant;
     [SerializeField] private GameObject _potatoPlant;
     [SerializeField] private GameObject _pumpkinPlant;
@@ -21,10 +22,10 @@ public class FarmArea : MonoBehaviour
     [SerializeField] private GameObject _tomatoPlant;
     [SerializeField] private GameObject _turnipPlant;
 
-    [SerializeField] private SoundManager _soundManager;
-    [SerializeField] private AudioClip _audio;
-
-    public static Action<string> OnPlant;
+    private enum AreaType { Uncultivated, Cultivated, ReadyForPlant, WithPlant};
+    private AreaType areaType;
+    private bool _canInteract = false;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
@@ -33,10 +34,8 @@ public class FarmArea : MonoBehaviour
 
     void Update()
     {
-        if(_canInteract && Input.GetKeyDown(KeyCode.E))
-        {
+        if (_canInteract && Input.GetKeyDown(KeyCode.E))
             Interact();
-        }
 
         if (areaType == AreaType.WithPlant)
         {
@@ -59,7 +58,7 @@ public class FarmArea : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {

@@ -2307,12 +2307,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    NPCName: Maria
+    NPCName: Pizza
     sentences:
-    - Sup, I have a job for you
-    - Yes?
-    - '*She talking about your task*'
-    - I`ll do it.
+    - Sup, man. I have a job for you!
+    - Hello, what a job?
+    - '*She talking about job  for you*'
+    - Okey, I`ll do it
   tipImage: {fileID: 900496996}
   positionToLeave: {x: 23.25, y: 8.35}
   shouldFlip: 1
@@ -3027,7 +3027,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &176067091
 MonoBehaviour:
@@ -3166,6 +3166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questManager: {fileID: 2146727221}
+  _soundManager: {fileID: 176067091}
+  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
   _uncultivatedGround: {fileID: 21300000, guid: 261236d23f58fa34dab674219c35421e, type: 3}
   _cultivatedGround: {fileID: 21300000, guid: 837008be1cd0ec2479cc9f8bb6f9b018, type: 3}
   _player: {fileID: 925823646}
@@ -3175,8 +3177,6 @@ MonoBehaviour:
   _strawberryPlant: {fileID: 6154784309609209008, guid: ebc18298d032ae8478d63715d9565a78, type: 3}
   _tomatoPlant: {fileID: 3166022465068569467, guid: b076a336d56d8714e8f036c546c2de25, type: 3}
   _turnipPlant: {fileID: 6148414765223062475, guid: 68e379718c8561240a3f7f9b382b6a1c, type: 3}
-  _soundManager: {fileID: 176067091}
-  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
 --- !u!1 &395148051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3496,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -3510,12 +3510,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910399b2844c2d54f84efcdef4c6c41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 925823644}
-  lerpSpeed: 3
-  topLimit: 8
-  bottomLimit: -8
-  rightLimit: 8.5
-  leftLimit: -9.5
+  _player: {fileID: 0}
+  _lerpSpeed: 1
+  _topLimit: 10
+  _bottomLimit: -10
+  _rightLimit: 10
+  _leftLimit: -10
 --- !u!1 &525242739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,6 +3644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questManager: {fileID: 2146727221}
+  _soundManager: {fileID: 176067091}
+  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
   _uncultivatedGround: {fileID: 21300000, guid: 261236d23f58fa34dab674219c35421e, type: 3}
   _cultivatedGround: {fileID: 21300000, guid: 837008be1cd0ec2479cc9f8bb6f9b018, type: 3}
   _player: {fileID: 925823646}
@@ -3653,8 +3655,6 @@ MonoBehaviour:
   _strawberryPlant: {fileID: 6154784309609209008, guid: ebc18298d032ae8478d63715d9565a78, type: 3}
   _tomatoPlant: {fileID: 3166022465068569467, guid: b076a336d56d8714e8f036c546c2de25, type: 3}
   _turnipPlant: {fileID: 6148414765223062475, guid: 68e379718c8561240a3f7f9b382b6a1c, type: 3}
-  _soundManager: {fileID: 176067091}
-  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
 --- !u!61 &572143233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4284,6 +4284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questManager: {fileID: 2146727221}
+  _soundManager: {fileID: 176067091}
+  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
   _uncultivatedGround: {fileID: 21300000, guid: 261236d23f58fa34dab674219c35421e, type: 3}
   _cultivatedGround: {fileID: 21300000, guid: 837008be1cd0ec2479cc9f8bb6f9b018, type: 3}
   _player: {fileID: 925823646}
@@ -4293,8 +4295,6 @@ MonoBehaviour:
   _strawberryPlant: {fileID: 6154784309609209008, guid: ebc18298d032ae8478d63715d9565a78, type: 3}
   _tomatoPlant: {fileID: 3166022465068569467, guid: b076a336d56d8714e8f036c546c2de25, type: 3}
   _turnipPlant: {fileID: 6148414765223062475, guid: 68e379718c8561240a3f7f9b382b6a1c, type: 3}
-  _soundManager: {fileID: 176067091}
-  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
 --- !u!61 &749480718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4662,7 +4662,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888981198
 GameObject:
@@ -5220,7 +5220,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   walkSpeed: 5
   runSpeed: 7
-  movement: {x: 0, y: 0}
 --- !u!114 &925823646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5233,8 +5232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a7ecc1dcf742e499e6f4c3d7f61cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamina: 0
   staminaBar: {fileID: 2080638501}
+  stamina: 0
   _seedslot: {fileID: 637969841}
   _seedTypes:
   - carrot
@@ -17894,6 +17893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questManager: {fileID: 2146727221}
+  _soundManager: {fileID: 176067091}
+  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
   _uncultivatedGround: {fileID: 21300000, guid: 261236d23f58fa34dab674219c35421e, type: 3}
   _cultivatedGround: {fileID: 21300000, guid: 837008be1cd0ec2479cc9f8bb6f9b018, type: 3}
   _player: {fileID: 925823646}
@@ -17903,8 +17904,6 @@ MonoBehaviour:
   _strawberryPlant: {fileID: 6154784309609209008, guid: ebc18298d032ae8478d63715d9565a78, type: 3}
   _tomatoPlant: {fileID: 3166022465068569467, guid: b076a336d56d8714e8f036c546c2de25, type: 3}
   _turnipPlant: {fileID: 6148414765223062475, guid: 68e379718c8561240a3f7f9b382b6a1c, type: 3}
-  _soundManager: {fileID: 176067091}
-  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
 --- !u!61 &1320722231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18357,9 +18356,9 @@ GameObject:
   - component: {fileID: 1484799954}
   - component: {fileID: 1484799953}
   - component: {fileID: 1484799952}
+  - component: {fileID: 1484799957}
   - component: {fileID: 1484799955}
   - component: {fileID: 1484799956}
-  - component: {fileID: 1484799957}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -18382,11 +18381,11 @@ MonoBehaviour:
   dialogue:
     NPCName: Patric
     sentences:
-    - Hey, dear!
+    - Hello, dear!
     - Hello.
-    - Im actually gonna have a few mounth of weekends, so you should work in farm
-      for this time. Have a nice time!
-    - Okey, bro!
+    - I gonna have a 2 mounth of weekend, so you should work in my farm. I have a
+      first task for you.
+    - Ok, I`ll do it.
   tipImage: {fileID: 989812112}
   positionToLeave: {x: -24.08, y: 0.98}
   shouldFlip: 1
@@ -18992,6 +18991,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questManager: {fileID: 2146727221}
+  _soundManager: {fileID: 176067091}
+  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
   _uncultivatedGround: {fileID: 21300000, guid: 261236d23f58fa34dab674219c35421e, type: 3}
   _cultivatedGround: {fileID: 21300000, guid: 837008be1cd0ec2479cc9f8bb6f9b018, type: 3}
   _player: {fileID: 925823646}
@@ -19001,8 +19002,6 @@ MonoBehaviour:
   _strawberryPlant: {fileID: 6154784309609209008, guid: ebc18298d032ae8478d63715d9565a78, type: 3}
   _tomatoPlant: {fileID: 3166022465068569467, guid: b076a336d56d8714e8f036c546c2de25, type: 3}
   _turnipPlant: {fileID: 6148414765223062475, guid: 68e379718c8561240a3f7f9b382b6a1c, type: 3}
-  _soundManager: {fileID: 176067091}
-  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
 --- !u!61 &1609975621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19320,6 +19319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questManager: {fileID: 2146727221}
+  _soundManager: {fileID: 176067091}
+  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
   _uncultivatedGround: {fileID: 21300000, guid: 261236d23f58fa34dab674219c35421e, type: 3}
   _cultivatedGround: {fileID: 21300000, guid: 837008be1cd0ec2479cc9f8bb6f9b018, type: 3}
   _player: {fileID: 925823646}
@@ -19329,8 +19330,6 @@ MonoBehaviour:
   _strawberryPlant: {fileID: 6154784309609209008, guid: ebc18298d032ae8478d63715d9565a78, type: 3}
   _tomatoPlant: {fileID: 3166022465068569467, guid: b076a336d56d8714e8f036c546c2de25, type: 3}
   _turnipPlant: {fileID: 6148414765223062475, guid: 68e379718c8561240a3f7f9b382b6a1c, type: 3}
-  _soundManager: {fileID: 176067091}
-  _audio: {fileID: 8300000, guid: 9f464fd8e8062634da1db70642c8b7f7, type: 3}
 --- !u!61 &1694637485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19913,6 +19912,7 @@ GameObject:
   - component: {fileID: 1731007659}
   - component: {fileID: 1731007661}
   - component: {fileID: 1731007660}
+  - component: {fileID: 1731007662}
   m_Layer: 5
   m_Name: Seed slot
   m_TagString: Untagged
@@ -19979,6 +19979,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731007658}
   m_CullTransparentMesh: 1
+--- !u!114 &1731007662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731007658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1731007660}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 925823646}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ChangeSeedInHand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1769298579
 GameObject:
   m_ObjectHideFlags: 0
@@ -20443,7 +20499,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046165194
 GameObject:
@@ -20973,5 +21029,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

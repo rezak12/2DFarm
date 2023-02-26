@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Characteristics")]
+    [SerializeField] private Bar staminaBar;
     public float maxStamina { get; private set; } = 20f;
     public float stamina;
-    [SerializeField] private Bar staminaBar;
+    [Header("Seeds")]
     [SerializeField] private SeedSlot _seedslot;
     [SerializeField] private string[] _seedTypes;
     private int _currentSeed = 0;
@@ -18,21 +20,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         staminaBar.SetValue(stamina);
-
-        if (Input.GetMouseButtonDown(0))
-        { 
-                if(_currentSeed > 0)
-                {
-                    _currentSeed--;
-                    _seedslot.ChangeCurrentSeed(_currentSeed);
-                }
-        }
-        else if (Input.GetMouseButtonDown(1))
-            if (_currentSeed < _seedTypes.Length-1)
-            {
-                _currentSeed++;
-                _seedslot.ChangeCurrentSeed(_currentSeed);
-            }
     }
 
     public string GetCurrentSeed()
@@ -47,5 +34,18 @@ public class Player : MonoBehaviour
             return;
         }
         maxStamina += stamina;
+    }
+
+    public void ChangeSeedInHand()
+    {
+        if(_currentSeed < _seedTypes.Length-1)
+        {
+            _currentSeed++;
+        }
+        else if(_currentSeed == _seedTypes.Length - 1)
+        {
+            _currentSeed = 0;
+        }
+            _seedslot.ChangeCurrentSeed(_currentSeed);
     }
 }

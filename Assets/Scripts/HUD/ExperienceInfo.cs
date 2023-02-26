@@ -5,6 +5,7 @@ public class ExperienceInfo : MonoBehaviour
 {
     [SerializeField] private ExperinceSystem _experience;
 
+    [Header("Text fields")]
     [SerializeField] private TMP_Text _currentLevel;
     [SerializeField] private TMP_Text _XPRange;
 

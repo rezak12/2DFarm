@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunning = false;
 
     private Rigidbody2D rb;
-    public Vector2 movement;
+    public Vector2 movement { get; private set; }
     private bool facingRight;
 
     private void Awake()

@@ -4,12 +4,15 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     [SerializeField] private GameObject tipImage;
+
+    [Header("Coordinate")]
+    [SerializeField] private Vector2 positionToLeave;
+    [SerializeField] bool shouldFlip;
+
+    private bool shouldLeave = false;
+    private bool isSpeaked;
     private DialogueManager dm;
     private QuestTrigger questTrigger;
-    private bool isSpeaked;
-    [SerializeField] Vector2 positionToLeave;
-    private bool shouldLeave = false;
-    [SerializeField] bool shouldFlip;
 
     private void Start()
     {
