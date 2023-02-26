@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float maxStamina = 20f;
+    public float maxStamina { get; private set; } = 20f;
     public float stamina;
     [SerializeField] private Bar staminaBar;
     [SerializeField] private SeedSlot _seedslot;
@@ -38,5 +38,14 @@ public class Player : MonoBehaviour
     public string GetCurrentSeed()
     {
         return _seedTypes[_currentSeed];
+    }
+
+    public void AddStaminaPoints(float stamina)
+    {
+        if(stamina <= 0 || stamina >= 20)
+        {
+            return;
+        }
+        maxStamina += stamina;
     }
 }
