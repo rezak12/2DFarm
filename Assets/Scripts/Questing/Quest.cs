@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,19 +9,29 @@ public class Quest
     public List<QuestGoal> Goals { get; private set; }
     public bool isActive { get; private set; }
     public bool isCompleted { get; private set; }
+    public int XPReward { get; private set; }
 
-    public Quest(string questName, List<QuestGoal> goals)
+    public Action<ExperinceSystem> OnComplete;
+
+    public Quest(string questName, List<QuestGoal> goals, int xpReward)
     {
         this.QuestName = questName;
         this.Goals = goals;
         this.isActive = false;
         this.isCompleted = false;
+        this.XPReward = xpReward;
+        this.OnComplete += TakeReward;
     }
 
     public virtual void CheckGoal(string argument)
     {
         if(Goals.TrueForAll(g => g.IsComplete))
             isCompleted = true;
+    }
+
+    private void TakeReward(ExperinceSystem ex)
+    {
+        ex.TakeXP(XPReward);
     }
 }
 

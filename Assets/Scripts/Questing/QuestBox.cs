@@ -7,6 +7,7 @@ public class QuestBox : MonoBehaviour
 
     [SerializeField] private TMP_Text _questName;
     [SerializeField] private TMP_Text _questGoals;
+    [SerializeField] private TMP_Text _reward;
 
     [SerializeField] private QuestManager _questManager;
 
@@ -33,12 +34,14 @@ public class QuestBox : MonoBehaviour
                 _questGoals.text += $"{quest.Goals[i].GoalName} ({quest.Goals[i].CurrentAmount}/{quest.Goals[i].RequirementAmount})";
                 _questGoals.text += " \n ";
             }
+            _reward.text = $"Reward: {quest.XPReward} XP";
             
         }
         else
         {
             _questName.text = "None";
             _questGoals.text = "None";
+            _reward.text = "None";
             _animator.SetBool("isOpen", false);
         }
     }

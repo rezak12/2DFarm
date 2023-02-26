@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class GatheringQuest : Quest
 {
-    public GatheringQuest(string questName, List<QuestGoal> goals) : base(questName, goals)
+    public GatheringQuest(string questName, List<QuestGoal> goals, int xpReward) : base(questName, goals, xpReward)
     {
     }
 

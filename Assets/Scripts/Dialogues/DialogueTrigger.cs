@@ -7,6 +7,9 @@ public class DialogueTrigger : MonoBehaviour
     private DialogueManager dm;
     private QuestTrigger questTrigger;
     private bool isSpeaked;
+    [SerializeField] Vector2 positionToLeave;
+    private bool shouldLeave = false;
+    [SerializeField] bool shouldFlip;
 
     private void Start()
     {
@@ -26,8 +29,18 @@ public class DialogueTrigger : MonoBehaviour
         {
             dm.DisplayNextSentence();
             if (questTrigger != null)
-                questTrigger.TriggerQuest();
+                DialogueManager.OnDialogueEnd += questTrigger.TriggerQuest;
         }
+
+        if (shouldLeave)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, positionToLeave, 2 * Time.deltaTime);
+            if((Vector2)transform.position == positionToLeave)
+            {
+                Destroy(gameObject);
+            }
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +50,15 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isSpeaked = false;
+        if (isSpeaked && positionToLeave != new Vector2(0, 0))
+        {
+            if (shouldFlip)
+            {
+                bool flip = GetComponent<SpriteRenderer>().flipX;
+                GetComponent<SpriteRenderer>().flipX = !flip;
+            }
+            shouldLeave = true;
+        }
         tipImage.SetActive(false);
     }
 }

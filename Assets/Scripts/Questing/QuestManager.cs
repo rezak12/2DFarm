@@ -6,17 +6,15 @@ public class QuestManager : MonoBehaviour
 {
     public Queue<Quest> quests = new Queue<Quest>();
     public Quest currentQuest { get; private set; }
+
+    [SerializeField] private SoundManager _soundManager;
+    [SerializeField] private AudioClip _audioNew;
+    [SerializeField] private AudioClip _audioComplete;
+
+    [SerializeField] private ExperinceSystem playerXP;
     void Start()
     {
-        //GatheringQuest quest = new GatheringQuest("Halloween", new List<QuestGoal>());
-        //quest.Goals.Add(new GatheringQuestGoal("Plant 10 pumpkin", 0, 10, "pumpkin"));
-        //quest.Goals.Add(new GatheringQuestGoal("Plant 5 tomato", 0, 5, "tomato"));
-        //quests.Enqueue(quest); 
-        //GatheringQuest quest2 = new GatheringQuest("melodyLoh", new List<QuestGoal>());
-        //quest2.Goals.Add(new GatheringQuestGoal("Plant 2 turnip", 0, 2, "turnip"));
-        //quest2.Goals.Add(new GatheringQuestGoal("Plant 6 strawberry", 0, 6, "strawberry"));
-        //quests.Enqueue(quest2);
-        //currentQuest = quests.Dequeue();
+        FarmArea.OnPlant += CheckChange;
     }
 
     public void SetNewQuest() 
@@ -27,6 +25,7 @@ public class QuestManager : MonoBehaviour
         {
             currentQuest = null;
         }
+        _soundManager.PlaySound(_audioNew);
     }
 
     public void TakeNewQuest(Quest quest)
@@ -43,6 +42,10 @@ public class QuestManager : MonoBehaviour
 
         currentQuest.CheckGoal(argument);
         if (currentQuest.isCompleted)
+        {
+            currentQuest.OnComplete?.Invoke(playerXP);
             SetNewQuest();
+            _soundManager.PlaySound(_audioComplete);
+        }
     }
 }

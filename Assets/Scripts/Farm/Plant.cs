@@ -12,13 +12,19 @@ public class Plant : MonoBehaviour
     [SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private TMP_Text _timer;
 
+    private SoundManager _soundManager;
+    [SerializeField] private AudioClip _audioPlant;
+    [SerializeField] private AudioClip _audioTake;
+
     void Start()
     {
         _inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        _soundManager = FindObjectOfType<SoundManager>();
         _timer.text = _timeForPrepare.ToString();
         _timer.enabled = true;
         _readyForDrop = false;
         dropTime = Time.time + _timeForPrepare;
+        _soundManager.PlaySound(_audioPlant);
     }
 
     void Update()
@@ -40,6 +46,7 @@ public class Plant : MonoBehaviour
             {
                 if(item.tag == "Player" && Input.GetKeyDown(KeyCode.E))
                 {
+                    _soundManager.PlaySound(_audioTake);
                     DropAndDestroy();
                 }
             }

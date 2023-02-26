@@ -6,12 +6,13 @@ public class QuestTrigger : MonoBehaviour
     [SerializeField] QuestManager _questManager;
     [SerializeField] string QuestName;
     [SerializeField] string[] GoalArguments;
+    [SerializeField] int XPReward;
     private Quest _quest;
     private bool isSended;
     void Start()
     {
         isSended = false;
-        _quest = new GatheringQuest(QuestName, new List<QuestGoal>());
+        _quest = new GatheringQuest(QuestName, new List<QuestGoal>(), XPReward);
         for (int i = 0; i < GoalArguments.Length; i++)
         {
             int amount = Random.Range(3, 10);

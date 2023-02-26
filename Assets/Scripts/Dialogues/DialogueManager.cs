@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private Queue<string> _sentences;
+
+    public static Action OnDialogueEnd;
 
     private void Start()
     {
@@ -48,8 +51,10 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        OnDialogueEnd?.Invoke();
         _animator.SetBool("IsOpen", false);
         Debug.Log("End of conversation");
+        OnDialogueEnd = null;
     }
 
     IEnumerator TypeSentence(string sentence)

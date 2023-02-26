@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FarmArea : MonoBehaviour
@@ -10,13 +11,20 @@ public class FarmArea : MonoBehaviour
 
     [SerializeField] private Sprite _uncultivatedGround;
     [SerializeField] private Sprite _cultivatedGround;
+
     [SerializeField] private Player _player;
+    
     [SerializeField] private GameObject _carrotPlant;
     [SerializeField] private GameObject _potatoPlant;
     [SerializeField] private GameObject _pumpkinPlant;
     [SerializeField] private GameObject _strawberryPlant;
     [SerializeField] private GameObject _tomatoPlant;
     [SerializeField] private GameObject _turnipPlant;
+
+    [SerializeField] private SoundManager _soundManager;
+    [SerializeField] private AudioClip _audio;
+
+    public static Action<string> OnPlant;
 
     private void Awake()
     {
@@ -91,6 +99,7 @@ public class FarmArea : MonoBehaviour
                 Debug.Log("Wrong type of area: " + gameObject.name);
                 break;
         }
+        _soundManager.PlaySound(_audio);
     }
 
     private void Plant()
@@ -130,7 +139,7 @@ public class FarmArea : MonoBehaviour
         }
 
         Instantiate(plant, transform.position, transform.rotation, this.transform);
-        _questManager.CheckChange(seed);
+        OnPlant?.Invoke(seed);
     }
 
 }
