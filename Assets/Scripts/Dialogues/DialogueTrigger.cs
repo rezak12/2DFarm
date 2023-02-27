@@ -32,7 +32,9 @@ public class DialogueTrigger : MonoBehaviour
         {
             dm.DisplayNextSentence();
             if (questTrigger != null)
+            {
                 DialogueManager.OnDialogueEnd += questTrigger.TriggerQuest;
+            }
         }
 
         if (shouldLeave)

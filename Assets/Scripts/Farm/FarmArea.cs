@@ -35,7 +35,9 @@ public class FarmArea : MonoBehaviour
     void Update()
     {
         if (_canInteract && Input.GetKeyDown(KeyCode.E))
+        {
             Interact();
+        }
 
         if (areaType == AreaType.WithPlant)
         {
@@ -46,7 +48,9 @@ public class FarmArea : MonoBehaviour
                 foreach (Collider2D item in collider2Ds)
                 {
                     if (item.tag == "Plant")
+                    {
                         shouldRetype = false;
+                    }
                 }
             }
             if (shouldRetype)

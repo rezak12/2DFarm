@@ -11,7 +11,9 @@ public class PrefabSpawner : MonoBehaviour
     void Update()
     {
         if (ShouldSpawn())
+        {
             Spawn();
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -26,13 +28,17 @@ public class PrefabSpawner : MonoBehaviour
 
         float randomMaySpawn = Random.Range(0,100);
         if (randomMaySpawn > spawnChance)
+        {
             return;
+        }
 
         Collider2D[] checkInfo = Physics2D.OverlapCircleAll(transform.position, checkRadius);
         foreach (Collider2D obj in checkInfo)
         {
             if (obj.tag == "Plant")
+            {
                 return;
+            }
         }
 
         GameObject plant = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position, transform.rotation, this.transform);

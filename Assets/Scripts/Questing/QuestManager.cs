@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public Queue<Quest> quests = new Queue<Quest>();
+    public Queue<Quest> quests { get; private set; } = new Queue<Quest>();
     public Quest currentQuest { get; private set; }
 
     [SerializeField] private SoundManager _soundManager;
@@ -20,7 +19,9 @@ public class QuestManager : MonoBehaviour
     public void SetNewQuest() 
     { 
         if(quests.Count > 0)
+        {
             currentQuest = quests.Dequeue();
+        }
         else
         {
             currentQuest = null;
@@ -32,13 +33,17 @@ public class QuestManager : MonoBehaviour
     {
         quests.Enqueue(quest);
         if (currentQuest == null)
+        {
             SetNewQuest();
+        }
     }
 
     public void CheckChange(string argument)
     {
         if (currentQuest == null)
+        {
             return;
+        }
 
         currentQuest.CheckGoal(argument);
         if (currentQuest.isCompleted)

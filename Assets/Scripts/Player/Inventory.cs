@@ -34,9 +34,13 @@ public class Inventory : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.I) && !inventoryTable.activeSelf)
+        {
             ShowInventory();
+        }
         else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I))
+        {
             CloseInventory();
+        }
     }
 
     public void AddItem(string type, int count)

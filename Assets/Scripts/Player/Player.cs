@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Bar staminaBar;
     public float maxStamina { get; private set; } = 20f;
     public float stamina;
+
     [Header("Seeds")]
     [SerializeField] private SeedSlot _seedslot;
     [SerializeField] private string[] _seedTypes;

@@ -23,7 +23,9 @@ public class QuestTrigger : MonoBehaviour
     public void TriggerQuest()
     {
         if (isSended)
+        {
             return;
+        }
         _questManager.TakeNewQuest(_quest);
         isSended = true;
     }

@@ -11,7 +11,9 @@ public class GatheringQuestGoal : QuestGoal
     public override void ChangeCurrentAmount(string argument)
     {
         if(argument != PlantName)
+        {
             return;
+        }
         
         base.ChangeCurrentAmount(argument);
     }

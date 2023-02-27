@@ -12,14 +12,18 @@ public class Bar : MonoBehaviour
     {
         slider.maxValue = maxHealth;
         slider.value = maxHealth;
-        if(usingGradient)
+        if (usingGradient)
+        {
             fill.color = gradient.Evaluate(1f);
+        }
     }
 
     public void SetValue(float health)
     {
         slider.value = health;
         if (usingGradient)
+        {
             fill.color = gradient.Evaluate(slider.normalizedValue);
+        }
     }
 }

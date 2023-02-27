@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
-    private Player player;
-    public float walkSpeed = 5f;
-    public float runSpeed = 7f;
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float runSpeed = 7f;
+
+    private Animator animator;
     private float moveSpeed;
     private bool isRunning = false;
-
+    private Player player;
     private Rigidbody2D rb;
     public Vector2 movement { get; private set; }
     private bool facingRight;
@@ -27,14 +27,22 @@ public class PlayerMovement : MonoBehaviour
         movement = new Vector2(X, Y).normalized;
 
         if (movement.x == 0 && movement.y == 0)
+        {
             animator.SetBool("IsWalk", false);
+        }
         else
+        {
             animator.SetBool("IsWalk", true);
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
             SetRunning(true);
+        }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
             SetRunning(false);
+        }
 
         if (isRunning)
         {
@@ -46,12 +54,18 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         else if (player.stamina < player.maxStamina)
+        {
             player.stamina += Time.deltaTime * 2;
+        }
 
         if(!facingRight && movement.x < 0)
+        {
             Flip();
+        }
         else if(facingRight && movement.x > 0)
+        {
             Flip();
+        }
 
     }
 
@@ -63,8 +77,10 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         facingRight = !facingRight;
-        if(facingRight)
+        if (facingRight)
+        {
             transform.eulerAngles = new Vector3(0,180,0);
+        }
         else if (!facingRight)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);

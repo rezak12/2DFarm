@@ -18,10 +18,14 @@ public class ExperinceSystem : MonoBehaviour
     public void TakeXP(int XP)
     {
         if (XP <= 0)
+        {
             return;
+        }
         CurrentXP += XP;
         if (CurrentXP > RequiredXP)
+        {
             LevelUp();
+        }
     }
 
     private void LevelUp()

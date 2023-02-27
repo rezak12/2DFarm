@@ -32,7 +32,9 @@ public class Plant : MonoBehaviour
     void Update()
     {
         if(Time.time < dropTime)
+        {
             _timer.text = ((int)dropTime - (int)Time.time).ToString();
+        }
         else
         {
             _readyForDrop = true;
