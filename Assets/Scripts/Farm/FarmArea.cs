@@ -14,7 +14,7 @@ public class FarmArea : MonoBehaviour
     [SerializeField] private Sprite _cultivatedGround;
 
     [Header("For Interact")]
-    [SerializeField] private Player _player;
+    [SerializeField] private Inventory _playerInventory;
     [SerializeField] private GameObject _carrotPlant;
     [SerializeField] private GameObject _potatoPlant;
     [SerializeField] private GameObject _pumpkinPlant;
@@ -106,43 +106,75 @@ public class FarmArea : MonoBehaviour
     }
 
     private void Plant()
-    {
-        Inventory inventory = _player.GetComponent<Inventory>();
-        string seed = _player.GetCurrentSeed().ToLower();
+    { 
+        string seed = _playerInventory.GetCurrentSeed().ToLower();
+        int seedCount = 0;
         GameObject plant = new GameObject();
         switch (seed)
         {
             case "carrot":
                 Destroy(plant);
-                plant = _carrotPlant;
+                seedCount = _playerInventory.carrotSeedCount;
+                if (seedCount > 0)
+                {
+                    plant = _carrotPlant;
+                    _playerInventory.RemoveItem("carrotseed", 1);
+                }
                 break;
             case "potato":
                 Destroy(plant);
-                plant = _potatoPlant;
+                seedCount = _playerInventory.potatoSeedCount;
+                if(seedCount > 0)
+                {
+                    plant = _potatoPlant;
+                    _playerInventory.RemoveItem("potatoseed", 1);
+                }
                 break;
             case "pumpkin":
                 Destroy(plant);
-                plant = _pumpkinPlant;
+                seedCount = _playerInventory.pumpkinSeedCount;
+                if( seedCount > 0)
+                {
+                    plant = _pumpkinPlant;
+                    _playerInventory.RemoveItem("pumpkinseed", 1);
+                }
                 break;
             case "strawberry":
                 Destroy(plant);
-                plant = _strawberryPlant;
+                seedCount = _playerInventory.strawberrySeedCount;
+                if(seedCount > 0)
+                {
+                    plant = _strawberryPlant;
+                    _playerInventory.RemoveItem("strawberryseed", 1);
+                }
                 break;
             case "tomato":
                 Destroy(plant);
-                plant = _tomatoPlant;
+                seedCount = _playerInventory.tomatoSeedCount;
+                if(seedCount > 0)
+                {
+                    plant = _tomatoPlant;
+                    _playerInventory.RemoveItem("tomatoseed", 1);
+                }
                 break;
             case "turnip":
                 Destroy(plant);
-                plant = _turnipPlant;
+                seedCount = _playerInventory.turnipSeedCount;
+                if(seedCount > 0)
+                {
+                    plant = _turnipPlant;
+                    _playerInventory.RemoveItem("turnipseed", 1);
+                }
                 break;
             default:
                 Debug.Log("Have not a current seed");
                 break;
         }
-
+        if (plant != null)
+        {
         Instantiate(plant, transform.position, transform.rotation, this.transform);
         OnPlant?.Invoke(seed);
+        }
     }
 
 }

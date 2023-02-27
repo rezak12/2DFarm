@@ -351,7 +351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13686402d9000564b9acab02c7885396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemToDrop: potato
+  _plantToDrop: potato
+  _seedToDrop: potatoseed
   _timeForPrepare: 30
   checkRadius: 0.5
   _timer: {fileID: 1313346249}
