@@ -5,7 +5,6 @@ public class Plant : MonoBehaviour
 {
     [Header("For Planting")]
     [SerializeField] private string _plantToDrop;
-    [SerializeField] private string _seedToDrop;
     [SerializeField] private float _timeForPrepare;
     [SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private TMP_Text _timer;
@@ -59,7 +58,7 @@ public class Plant : MonoBehaviour
     public void DropAndDestroy()
     {
         _inventory.AddItem(_plantToDrop, Random.Range(1, 3));
-        _inventory.AddItem(_seedToDrop, Random.Range(1, 3));
+        _inventory.AddItem($"{_plantToDrop}seed", Random.Range(1, 3));
         Destroy(gameObject);
     }
 

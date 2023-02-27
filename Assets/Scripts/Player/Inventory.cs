@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private string[] _seedTypes;
     private int _currentSeed = 0;
 
+
     [Header("UI")]
     [SerializeField] private GameObject inventoryTable;
     [SerializeField] private TMP_Text _carrot;
@@ -83,6 +84,7 @@ public class Inventory : MonoBehaviour
         {
             _currentSeed = 0;
         }
+
         _seedslot.ChangeCurrentSeed(_currentSeed);
     }
 
@@ -119,7 +121,7 @@ public class Inventory : MonoBehaviour
                 itemCount = ref _pumpkinSeedCount;
                 break;
             case "strawberryseed":
-                itemCount = ref _strawberryCount;
+                itemCount = ref _strawberrySeedCount;
                 break;
             case "tomatoseed":
                 itemCount = ref _tomatoSeedCount;
