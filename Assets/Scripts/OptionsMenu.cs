@@ -8,7 +8,8 @@ public class OptionsMenu : MonoBehaviour
 {
     //public Resolution[] resolutions;
     //public TMP_Dropdown resolutionDropdown;
-    public AudioMixer audioMixer;
+    public AudioMixer musicMixer;
+    public AudioMixer soundsMixer;
 
     private void Start()
     {
@@ -32,9 +33,14 @@ public class OptionsMenu : MonoBehaviour
         //resolutionDropdown.value = currentResolutionIndex;
         //resolutionDropdown.RefreshShownValue();
     }
-    public void SetVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        musicMixer.SetFloat("volume", volume);
+    }
+
+    public void SetSoundsVolume(float volume)
+    {
+        soundsMixer.SetFloat("volume", volume);
     }
 
     public void SetQuality(int qualityIndex)
