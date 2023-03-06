@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     [Header("Characteristics")]
     [SerializeField] private Bar staminaBar;
+    [SerializeField][Range(0, 5)] int someValue = 0;
     public float maxStamina { get; private set; } = 20f;
     public float stamina;
 
@@ -16,6 +17,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         staminaBar.SetValue(stamina);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            someValue++;
+        }
     }
 
     public void AddStaminaPoints(float stamina)
